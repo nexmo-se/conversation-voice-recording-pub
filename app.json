@@ -1,0 +1,53 @@
+{
+  "name": "Vonage Voice and Conversations API Start Stop Recording",
+  "description": "Conversation Recording and MP3 download",
+  "repository": "https://github.com/nexmo-se/conversation-voice-recording",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": ["node", "express", "vonage", "conversations api", "voice api"],
+  "env": {
+    "NGROK_URL": {
+      "desription": "Your NGROK URL",
+      "required": true
+    },
+    "VONAGE_API_KEY": {
+      "desription": "Vonage API Key",
+      "required": true
+    },
+    "VONAGE_API_SECRET": {
+      "description": "Vonage API Secret",
+      "required": true
+    },
+    "VONAGE_NUMBER": {
+      "desription": "Vonage Application Virtual Number",
+      "required": true
+    },
+    "VONAGE_APPLICATION_ID": {
+      "description": "Vonage Application ID",
+      "required": true
+    },
+    "VONAGE_APPLICATION_PRIVATE_KEY": {
+      "desription": "Vonage Application Private Key",
+      "required": true
+    },
+    "PUSHER_APP_ID": {
+      "desription": "Pusher App ID",
+      "required": false
+    },
+    "PUSHER_KEY": {
+      "desription": "Pusher Key",
+      "required": false
+    },
+    "PUSHER_SECRET": {
+      "desription": "Pusher Secret",
+      "required": false
+    },
+    "PUSHER_CLUSTER": {
+      "desription": "Pusher Cluster",
+      "required": false
+    },
+    "PUSHER_USE_TLS": {
+      "desription": "Pusher TLS",
+      "required": false
+    }
+  }
+}
