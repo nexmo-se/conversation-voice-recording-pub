@@ -1,15 +1,27 @@
 # Conversation Voice Recording
 
-This application uses Node.js and React.js with usage of Vonage Voice and Conversations API to make and record a conversation with start and stop feature and downloading a final mp3 file.
+## Code logic
 
-## Account Prerequisites
+1. A Mobile Outbound (MO) call is made to the Vonage Virtual Number (LVN).
+   - Route `/webhooks/answer` creats a Conversation ID via `vonage.conversations.create` function.
+   - The NCCO is configured with the `Conversation Name` and an `eventUrl` to trigger route `/recording` to start/stop recording the conversation. The recordings are saved as an MP3 via `voange.files.save` function with the parameters `recording url` and `name`. In our case we used timestamp as the name.
+2. Since the recording has started, we can use the `/stopRecordig` route to stop the recording by passing the `Conversation ID`, `stop` action and `event_url` to stop the recording via `vonage.conversations.record` function.
+3. Since the recording has stopped, we can use the `/startRecording` route to start the recording by passing the `Conversation ID`, `start` action and `event_url` to start the recording via  `vonage.conversations.record` function.
+4. Stop the recording when finished recording.
+5. As an added bonus, we've added a `/doneRecording` route which combines all the seperate MP3 recordings together into one file.
+
+## To Deploy Application
+
+This application uses Node.js and React.js with usage of Vonage Voice and Conversations API to make and record a conversation with start and stop feature and downloading a final mp3 file via `rename.js` file.
+
+### Account Prerequisites
 
 - Vonage Account
 - Vonage Virtual Number
 - Vonage Application with Voice enabled
 - Heroku Account
 
-## How to use
+### How to use
 
 You can either clone and run the project locally or deploy the application to Heroku.
 
@@ -18,7 +30,7 @@ Options:
 1. [Deploy to Heroku](#deploy-to-heroku)
 2. [Run Locally](#run-locally)
 
-### Deploy to Heroku
+#### Deploy to Heroku
 
 To easily deploy this repository to Heroku, click the button. You'll need to have a Heroku Account to complete the action.
 
