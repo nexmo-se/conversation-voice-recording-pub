@@ -38,6 +38,7 @@
   "scripts": {
     "deploy": "git add . && git commit -m update-repo && git push && npm run logs:prod",
     "logs:prod": "heroku logs --tail --app conv-voice-record",
+    "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build",
     "server": "nodemon server.js",
     "client": "react-scripts start",
     "dev": "concurrently -k \"npm run server\" \"npm run client\"",
