@@ -5,6 +5,12 @@
   "description": "Start/Stop/Pause/Resume Conversation Recording using Conversation and Voice API",
   "author": "Kitt Phi <Kitt.Phi@Vonage.com>",
   "proxy": "http://localhost:8054/",
+  "secure": false,
+  "main": "server.js",
+  "engines": {
+    "npm": "8.5.5",
+    "node": "16.14.2"
+  },
   "dependencies": {
     "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",
@@ -30,6 +36,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
+    "deploy": "git add . && git commit -m update-repo && git push && npm run logs:prod",
+    "logs:prod": "heroku logs --tail --app conv-voice-record",
     "server": "nodemon server.js",
     "client": "react-scripts start",
     "dev": "concurrently -k \"npm run server\" \"npm run client\"",
@@ -51,7 +59,6 @@
       "last 1 safari version"
     ]
   },
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nexmo-se/conversation-voice-recording.git"
